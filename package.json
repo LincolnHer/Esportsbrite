@@ -12,7 +12,16 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LincolnHer/Esportsbrite.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LincolnHer/Esportsbrite/issues"
+  },
+  "homepage": "https://github.com/LincolnHer/Esportsbrite#readme"
 }
+
