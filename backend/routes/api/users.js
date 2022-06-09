@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { User, Event } = require("../../db/models");
 
 const router = express.Router();
 
@@ -43,5 +43,22 @@ router.post(
     });
   }),
 );
+
+// GET all events of one user
+// /api/users/:hostId/events
+router.get('/:hostId/events', asyncHandler(async(req, res) => {
+    const hostId = req.params.hostId
+
+    const events = await Event.findAll({
+        where: {
+            hostId: hostId
+        },
+        order: [
+          ['createdAt', 'DESC']
+        ]
+    })
+
+    return res.json(events)
+}))
 
 module.exports = router;
