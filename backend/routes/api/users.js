@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User, Event } = require("../../db/models");
+const { User, Event, Ticket } = require("../../db/models");
 
 const router = express.Router();
 
@@ -54,11 +54,28 @@ router.get('/:hostId/events', asyncHandler(async(req, res) => {
             hostId: hostId
         },
         order: [
-          ['createdAt', 'DESC']
+          ['createdAt', 'ASC']
         ]
     })
 
     return res.json(events)
+}))
+
+// GET all tickets of one user only
+// api/users/:userId/ticket
+router.get('/:userId/tickets', asyncHandler(async(req, res) => {
+  const userId = req.params.userId
+
+  const tickets = await Ticket.findAll({
+      where: {
+          userId: userId
+      },
+      order: [
+          ['updatedAt', 'ASC']
+      ]
+  })
+
+  return res.json(tickets)
 }))
 
 module.exports = router;
