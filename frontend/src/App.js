@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
+import * as eventActions from './store/events'
 import Navigation from './components/Navigation';
 import { Modal } from './context/Modal';
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(eventActions.getEventsThunk())
   }, [dispatch]);
 
   return (

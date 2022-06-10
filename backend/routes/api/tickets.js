@@ -5,6 +5,16 @@ const router = express.Router()
 
 const { Ticket } = require('../../db/models')
 
+// GET get single ticket
+// api/tickets/:ticketId
+router.get('/:ticketId', asyncHandler(async(req, res) => {
+    const ticketId = req.params.ticketId
+
+    const ticket = await Ticket.findByPk(ticketId);
+
+    return res.json(ticket)
+}))
+
 // POST create a ticket
 // api/tickets/
 router.post('/', asyncHandler(async(req, res) => {
