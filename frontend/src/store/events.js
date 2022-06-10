@@ -117,11 +117,11 @@ export const deleteEventThunk = (event) => async (dispatch) => {
 };
 
 // Reducer
-const initialState = { userEvent: {} };
+const initialState = { userEvents: {} };
 
 export default function eventsReducer(state = initialState, action) {
   let newState;
-  let userEvent;
+  let userEvents;
   switch (action.type) {
     case GET_EVENTS:
       newState = {};
@@ -133,23 +133,24 @@ export default function eventsReducer(state = initialState, action) {
       newState = { ...state, event: action.payload };
       return newState;
     case GET_USER_EVENTS:
-      newState = { ...state }
-      userEvent = {}
+      newState = { ...state };
+      userEvents = {};
       action.payload.forEach((event) => {
-        userEvent[event.id] = event;
+        userEvents[event.id] = event;
       });
-      newState.userEvent = userEvent
-      return newState
+      newState.userEvents = userEvents;
+      return newState;
     case POST_EVENT:
       newState = { ...state, [action.payload.id]: action.payload };
       return newState;
     case PUT_EVENT:
       newState = { ...state };
       newState[action.payload.id] = action.payload;
+      return newState
     case DELETE_EVENT:
       newState = { ...state };
-      delete newState[action.payload.id]
-      return newState
+      delete newState[action.payload.id];
+      return newState;
     default:
       return state;
   }
