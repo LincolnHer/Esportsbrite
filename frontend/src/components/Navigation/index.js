@@ -11,24 +11,44 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+      <div className="splash-link">
+        <NavLink to="/events/create" className="splash-create-link">Create an Event</NavLink>
+      </div>
+      <div className="splash-link-profile">
+        <ProfileButton user={sessionUser} />
+      </div>
+      </>
     );
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
+      <div className="splash-link">
+        <NavLink to="/events/create" className="splash-create-link">Create an Event</NavLink>
+      </div>
+      <div className="splash-link">
+        <NavLink to="/login">Log In</NavLink>
+      </div>
+      <div className="splash-link">
         <NavLink to="/signup">Sign Up</NavLink>
+      </div>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    // <ul>
+    //   <li>
+    //     <NavLink exact to="/">Home</NavLink>
+    //     {isLoaded && sessionLinks}
+    //   </li>
+    // </ul>
+    <nav className="splash-nav">
+      <NavLink exact to="/" className="home-link">esportsbrite</NavLink>
+      <div className="splash-links">
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
+    </nav>
   );
 }
 
