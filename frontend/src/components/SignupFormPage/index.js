@@ -29,7 +29,8 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div className="split-container">
+    <div className="split-left">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -73,7 +74,11 @@ function SignupFormPage() {
         </label>
         <button type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
+    <div className="split-right">
+
+    </div>
+    </div>
   );
 }
 

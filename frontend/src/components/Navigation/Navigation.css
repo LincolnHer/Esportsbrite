@@ -1,3 +1,51 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.profile-email {
+  padding-left: 5px;
+}
+
+.splash-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1350px;
+	/* padding: 20px; */
+}
+
+.home-link {
+  font-weight: 900;
+  color: rgb(255, 128, 0);
+  font-size: 20px;
+}
+
+.splash-links {
+  display: flex;
+  gap: 15px;
+  word-spacing: 0;
+}
+
+.splash-create-link {
+  color: blue;
+}
+
+.splash-link {
+  height: 72px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 5px;
+}
+
+.splash-link:hover {
+  background-color: #F5F5F5;
+}
+
+.splash-link-profile {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
