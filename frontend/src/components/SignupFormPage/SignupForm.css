@@ -62,8 +62,9 @@ input {
 }
 
 .signup-login-link {
-    margin-top: 10px;
+    margin-top: 16px;
     color: blue;
+    font-size: 14px;
 }
 
 .signup-login-link:hover {
@@ -72,4 +73,19 @@ input {
 
 .create-login {
     margin-bottom: 0;
+}
+
+.divider {
+    display: flex;
+    width: 356px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.divider-text {
+    border: 1px solid;
+    border-radius: 100px;
+    position: relative;
+    padding: 0 12px 3px;
+    margin: 0 auto;
 }
