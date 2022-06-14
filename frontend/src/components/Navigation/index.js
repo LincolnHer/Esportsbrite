@@ -15,9 +15,7 @@ function Navigation({ isLoaded }){
       <div className="splash-link">
         <NavLink to="/events/create" className="splash-create-link">Create an Event</NavLink>
       </div>
-      <div className="splash-link-profile">
         <ProfileButton user={sessionUser} />
-      </div>
       </>
     );
   } else {
@@ -27,10 +25,10 @@ function Navigation({ isLoaded }){
         <NavLink to="/events/create" className="splash-create-link">Create an Event</NavLink>
       </div>
       <div className="splash-link">
-        <NavLink to="/login">Log In</NavLink>
+        <NavLink to="/login" className="login-signup">Log In</NavLink>
       </div>
       <div className="splash-link">
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup" className="login-signup">Sign Up</NavLink>
       </div>
       </>
     );
