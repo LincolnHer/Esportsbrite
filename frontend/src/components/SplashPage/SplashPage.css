@@ -1,4 +1,4 @@
-.Splash {
+.Splash-Home {
     white-space: nowrap;
     width: 100vw;
     /* height: 100vh; */
@@ -28,6 +28,11 @@
     align-items: center;
 }
 
+/* .page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .events-index {
     display: grid;
@@ -106,3 +111,7 @@
     margin-top: 6px;
     width: 1260px;
 }
+
+/* .event-title {
+    margin-top: 6px;
+} */

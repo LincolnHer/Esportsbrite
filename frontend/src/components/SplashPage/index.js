@@ -21,7 +21,7 @@ const SplashPage = (isLoaded) => {
   // console.log(events)
 
   return (
-    <div className="Splash">
+    <div className="Splash-Home">
       <Navigation isLoaded={isLoaded} />
       <main>
         <div className="page-bkg" style={backgroundStyle}>
@@ -29,6 +29,9 @@ const SplashPage = (isLoaded) => {
             Evolve your gaming experience
           </div>
         </div>
+          {/* <div className="event-title">
+            <h1>Events</h1>
+          </div> */}
         <div className="page-body">
           <div className="event-title">
             <h1>Events</h1>
