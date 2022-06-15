@@ -29,10 +29,10 @@ const SplashPage = (isLoaded) => {
             Evolve your gaming experience
           </div>
         </div>
-        <div className="event-title">
-          <h1>Events</h1>
-        </div>
         <div className="page-body">
+          <div className="event-title">
+            <h1>Events</h1>
+          </div>
           <div className="events-index">
             {eventsArr?.map((event, idx) => (
               <EventsIndex key={idx} event={event}/>

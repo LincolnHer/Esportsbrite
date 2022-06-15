@@ -23,6 +23,7 @@
 
 .page-body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -102,7 +103,6 @@
 }
 
 .event-title {
-    padding-left: 77px;
-    padding-right: 77px;
     margin-top: 6px;
+    width: 1260px;
 }
