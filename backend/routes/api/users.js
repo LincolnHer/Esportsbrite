@@ -44,6 +44,14 @@ router.post(
   }),
 );
 
+// GET all users
+// /api/users
+router.get('/', asyncHandler(async(req, res) => {
+  const user = await User.findAll()
+
+  return res.json(user)
+}))
+
 // GET all events of one user
 // /api/users/:hostId/events
 router.get('/:hostId/events', asyncHandler(async(req, res) => {
