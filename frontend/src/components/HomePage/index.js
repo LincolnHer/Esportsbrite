@@ -1,9 +1,18 @@
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import * as ticketActions from '../../store/tickets'
 import Navigation from "../Navigation"
 
 const HomePage = (isLoaded) => {
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state.session.user)
+
+    useEffect(() => {
+        dispatch(ticketActions.getTicketsThunk(user.id))
+    }, [dispatch])
+
     return (
         <div className="Home">
-            {/* <h1>Hello from Home Page</h1> */}
             <Navigation isLoaded={isLoaded}/>
         </div>
     )
