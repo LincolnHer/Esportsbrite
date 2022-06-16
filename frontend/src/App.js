@@ -12,6 +12,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import HomePage from "./components/HomePage";
 import SplashPage from "./components/SplashPage";
 import EventFormPage from "./components/EventFormPage";
+import EventPage from "./components/EventPage";
+import EditEventFormPage from "./components/EditEventFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,8 +48,12 @@ function App() {
           <ProtectedRoute path="/events/create">
             <EventFormPage isLoaded={isLoaded} />
           </ProtectedRoute>
-          <ProtectedRoute path="/events/:eventId"></ProtectedRoute>
-          <ProtectedRoute path="/events/:eventId/edit"></ProtectedRoute>
+          <ProtectedRoute exact="true" path="/events/:eventId">
+            <EventPage isLoaded={isLoaded}/>
+          </ProtectedRoute>
+          <ProtectedRoute exact="true" path="/events/:eventId/edit">
+            <EditEventFormPage isLoaded={isLoaded} />
+          </ProtectedRoute>
           <ProtectedRoute path="/tickets" exact={true}></ProtectedRoute>
         </Switch>
       )}
