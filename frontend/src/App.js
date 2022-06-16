@@ -44,12 +44,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact={true} path="/events/:eventId">
+            <EventPage isLoaded={isLoaded} />
+          </Route>
           <ProtectedRoute exact={true} path="/events/all"></ProtectedRoute>
           <ProtectedRoute exact={true} path="/events/create">
             <EventFormPage isLoaded={isLoaded} />
-          </ProtectedRoute>
-          <ProtectedRoute exact={true} path="/events/:eventId">
-            <EventPage isLoaded={isLoaded} />
           </ProtectedRoute>
           <ProtectedRoute exact={true} path="/events/:eventId/edit">
             <EditEventFormPage isLoaded={isLoaded} />
