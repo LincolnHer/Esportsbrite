@@ -1,0 +1,147 @@
+.event-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1080px;
+    border: 1px solid rgba(230,230,230, 1);
+}
+
+.event-details {
+    display: flex;
+    height: 360px;
+}
+
+.event-ticket {
+    border-top: 1px solid rgba(230,230,230, 1);
+    width: 1080px;
+    height: 44px;
+}
+
+.event-about {
+    border-top: 1px solid rgba(230,230,230, 1);
+    width: 1080px;
+
+}
+
+.event-img-2 {
+    background-image: url("https://www.technewsworld.com/wp-content/uploads/sites/3/2021/09/esports-arena.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 360px;
+    width: 806px;
+}
+
+.event-date-2 {
+    font-size: 13px;
+}
+
+.event-date-3 {
+    font-size: 17px;
+}
+
+.event-host-2 {
+    font-size: 14px;
+    padding-top: 4px;
+    margin-top: 6px;
+    color: blue;
+}
+
+.by {
+    color: black;
+}
+
+.event-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.ticket-btn {
+    margin: 0 16px 0 16px;
+}
+
+.event-card-content-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 274px;
+    height: 360px;
+    padding: 16px 16px;
+}
+
+.event-card-content-2>div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.event-btn-container-2 {
+    display: flex;
+    width: 242px;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.event-description-container {
+    display: flex;
+    width: 462px;
+    word-break: break-word; /* doesn't work in firefox */
+    word-wrap: break-word;
+    white-space: normal;
+    padding-top: 50px;
+}
+
+.event-description {
+    min-width: 0;
+    font-size: 16px;
+}
+
+.event-description-2 {
+    min-width: 0;
+    font-size: 14px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding-top: 50px;
+    padding-left: 66px;
+}
+
+.event-about {
+    display: flex;
+    width: 1080px;
+    justify-content: flex-end;
+    height: 100vh;
+}
+
+.ev-date {
+    margin-bottom: 10px;
+    display: flex;
+    width: 334px;
+    word-break: break-word; /* doesn't work in firefox */
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.ev-location {
+    display: flex;
+    width: 334px;
+    word-break: break-word; /* doesn't work in firefox */
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.event-span {
+    font-weight: bold;
+}
