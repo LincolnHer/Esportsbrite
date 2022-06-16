@@ -12,33 +12,26 @@ const backgroundStyle = {
 };
 
 const SplashPage = (isLoaded) => {
-  const events = useSelector((state) => state.events)
-  const eventsArr = Object.values(events)
-  const dateStr = eventsArr[0]?.date
-  const newDate = new Date(dateStr)
-  console.log(newDate)
-  // console.log(eventsArr)
-  // console.log(events)
+  const events = useSelector((state) => state.events);
+  const eventsArr = Object.values(events);
+  const dateStr = eventsArr[0]?.date;
+  const newDate = new Date(dateStr);
+  console.log(newDate);
 
   return (
     <div className="Splash-Home">
       <Navigation isLoaded={isLoaded} />
       <main>
         <div className="page-bkg" style={backgroundStyle}>
-          <div className="page-title">
-            Evolve your gaming experience
-          </div>
+          <div className="page-title">Evolve your gaming experience</div>
         </div>
-          {/* <div className="event-title">
-            <h1>Events</h1>
-          </div> */}
         <div className="page-body">
           <div className="event-title">
             <h1>Events</h1>
           </div>
           <div className="events-index">
             {eventsArr?.map((event, idx) => (
-              <EventsIndex key={idx} event={event}/>
+              <EventsIndex key={idx} event={event} />
             ))}
           </div>
         </div>

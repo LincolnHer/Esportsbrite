@@ -49,7 +49,7 @@ function App() {
             <EventFormPage isLoaded={isLoaded} />
           </ProtectedRoute>
           <ProtectedRoute exact={true} path="/events/:eventId">
-            <EventPage isLoaded={isLoaded}/>
+            <EventPage isLoaded={isLoaded} />
           </ProtectedRoute>
           <ProtectedRoute exact={true} path="/events/:eventId/edit">
             <EditEventFormPage isLoaded={isLoaded} />
