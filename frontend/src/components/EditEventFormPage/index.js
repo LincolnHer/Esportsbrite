@@ -79,7 +79,7 @@ const EditEventFormPage = (isLoaded) => {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <h1 className="event-form-title">Create Event</h1>
+        <h1 className="event-form-title">Edit Event</h1>
         <label>
           Name *
           <input
