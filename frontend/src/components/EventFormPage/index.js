@@ -47,14 +47,14 @@ const EventFormPage = (isLoaded) => {
 
   useEffect(() => {
     const valiErrs = [];
-    if (category.length > 40) valiErrs.push("Category name can't exceed 40 characters")
-    if (!date.length) valiErrs.push("Please select a date for you event")
-    if (!description.length) valiErrs.push("Please provide a description for you event")
-    if (description.length > 255) valiErrs.push("Description can't exceed 255 characters")
-    if (!location.length) valiErrs.push("Please provide a location for your event")
-    if (location.length > 255) valiErrs()
-    if (!name.length) valiErrs.push("Event name is required")
-    if (name.length > 80) valiErrs.push("Event name cant exceed 80 characters")
+    if (category?.length > 40) valiErrs.push("Category name can't exceed 40 characters")
+    if (!date?.length) valiErrs.push("Please select a date for you event")
+    if (!description?.length) valiErrs.push("Please provide a description for you event")
+    if (description?.length > 255) valiErrs.push("Description can't exceed 255 characters")
+    if (!location?.length) valiErrs.push("Please provide a location for your event")
+    if (location?.length > 255) valiErrs.push("Location name can't exceed 255 characters")
+    if (!name?.length) valiErrs.push("Event name is required")
+    if (name?.length > 80) valiErrs.push("Event name cant exceed 80 characters")
     setErrors(valiErrs)
   }, [category, date, description, location, name])
 
