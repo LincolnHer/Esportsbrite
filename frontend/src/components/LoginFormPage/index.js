@@ -25,11 +25,11 @@ function LoginFormPage() {
   };
 
   const demoLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(
       sessionActions.login({ credential: "Faker@aa.io", password: "password" })
-    )
-  }
+    );
+  };
 
   return (
     <div className="split-container">
@@ -71,7 +71,7 @@ function LoginFormPage() {
             <div className="divider-text">or</div>
           </div>
           <button type="button" className="auth-btn" onClick={demoLogin}>
-              Demo
+            Demo
           </button>
           <NavLink to="/signup" className="signup-login-link">
             Sign up

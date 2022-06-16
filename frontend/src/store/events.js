@@ -146,7 +146,7 @@ export default function eventsReducer(state = initialState, action) {
     case PUT_EVENT:
       newState = { ...state };
       newState[action.payload.id] = action.payload;
-      return newState
+      return newState;
     case DELETE_EVENT:
       newState = { ...state };
       delete newState[action.payload.id];

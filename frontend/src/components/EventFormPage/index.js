@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Navigation from "../Navigation";
-import { postEventThunk } from "../../store/events"
+import { postEventThunk } from "../../store/events";
 import "./EventForm.css";
 
 const EventFormPage = (isLoaded) => {
   const user = useSelector((state) => state.session.user);
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
   const currDate = new Date().toISOString().split("T")[0];
 
   const [category, setCategory] = useState("");
@@ -17,7 +17,7 @@ const EventFormPage = (isLoaded) => {
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -32,8 +32,8 @@ const EventFormPage = (isLoaded) => {
       price: price,
     };
 
-    const newEvent = await dispatch(postEventThunk(eventFormVal))
-    history.push("/")
+    const newEvent = await dispatch(postEventThunk(eventFormVal));
+    history.push("/");
   };
 
   const reset = () => {
@@ -47,16 +47,22 @@ const EventFormPage = (isLoaded) => {
 
   useEffect(() => {
     const valiErrs = [];
-    if (category.length > 40) valiErrs.push("Category name can't exceed 40 characters")
-    if (!date.length) valiErrs.push("Please select a date for you event")
-    if (!description.length) valiErrs.push("Please provide a description for you event")
-    if (description.length > 255) valiErrs.push("Description can't exceed 255 characters")
-    if (!location.length) valiErrs.push("Please provide a location for your event")
-    if (location.length > 255) valiErrs()
-    if (!name.length) valiErrs.push("Event name is required")
-    if (name.length > 80) valiErrs.push("Event name cant exceed 80 characters")
-    setErrors(valiErrs)
-  }, [category, date, description, location, name])
+    if (category?.length > 40)
+      valiErrs.push("Category name can't exceed 40 characters");
+    if (!date?.length) valiErrs.push("Please select a date for you event");
+    if (!description?.length)
+      valiErrs.push("Please provide a description for you event");
+    if (description?.length > 255)
+      valiErrs.push("Description can't exceed 255 characters");
+    if (!location?.length)
+      valiErrs.push("Please provide a location for your event");
+    if (location?.length > 255)
+      valiErrs.push("Location name can't exceed 255 characters");
+    if (!name?.length) valiErrs.push("Event name is required");
+    if (name?.length > 80)
+      valiErrs.push("Event name cant exceed 80 characters");
+    setErrors(valiErrs);
+  }, [category, date, description, location, name]);
 
   return (
     <>
@@ -140,7 +146,11 @@ const EventFormPage = (isLoaded) => {
           <button className="event-btn-discard" type="button" onClick={reset}>
             Discard
           </button>
-          <button className="event-btn" type="submit" disabled={errors.length > 0}>
+          <button
+            className="event-btn"
+            type="submit"
+            disabled={errors.length > 0}
+          >
             Save
           </button>
         </div>
