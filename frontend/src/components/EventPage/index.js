@@ -3,18 +3,23 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import Navigation from "../Navigation";
 import { deleteEventThunk } from "../../store/events";
 import "./EventPage.css"
+import { useState } from "react";
 
 const EventPage = (isLoaded) => {
     const { eventId } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+    const user = useSelector((state) => state.session.user)
     const users = useSelector((state) => state.users)
     const events = useSelector((state) => state.events)
     const usersArr = Object.values(users)
     const eventsArr = Object.values(events)
     const currEvent = eventsArr.find(event => event?.id === +eventId)
-    console.log(currEvent)
     const host = usersArr?.find(user => user?.id === currEvent?.hostId)
+    const owner = user?.id === currEvent?.hostId
+    // console.log(user)
+    // console.log(usersArr)
+    console.log("OWNER EXISTS", owner)
     const newDate = new Date(currEvent?.date)
     const dateStr = newDate?.toDateString()
     // Tue Oct 04 2022
@@ -44,14 +49,18 @@ const EventPage = (isLoaded) => {
                             {/* <div className="event-location">{currEvent?.location}</div> */}
                             <div className="event-host-2"><span className="by">by</span> {host?.username}</div>
                             <div className="event-btn-container-2">
-                                <NavLink to={`/events/${currEvent?.id}/edit`} >
-                                    <button className="event-btn" type="button">
-                                        edit
-                                    </button>
-                                </NavLink>
-                                <button className="event-btn" type="button" onClick={deleteEvent}>
-                                    delete
-                                </button>
+                                {owner && (
+                                    <>
+                                        <NavLink to={`/events/${currEvent?.id}/edit`} >
+                                            <button className="event-btn" type="button">
+                                                edit
+                                            </button>
+                                        </NavLink>
+                                        <button className="event-btn" type="button" onClick={deleteEvent}>
+                                            delete
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
