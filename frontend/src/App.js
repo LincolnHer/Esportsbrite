@@ -44,7 +44,7 @@ function App() {
           </Route>
           <ProtectedRoute path="/events/all"></ProtectedRoute>
           <ProtectedRoute path="/events/create">
-            <EventFormPage />
+            <EventFormPage isLoaded={isLoaded} />
           </ProtectedRoute>
           <ProtectedRoute path="/events/:eventId"></ProtectedRoute>
           <ProtectedRoute path="/events/:eventId/edit"></ProtectedRoute>

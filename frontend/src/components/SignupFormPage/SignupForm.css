@@ -45,7 +45,7 @@
     flex-direction: column;
 }
 
-input {
+input, textarea {
     display: flex;
     flex-direction: column;
     width: 356px;
