@@ -1,0 +1,45 @@
+.event-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-form-title {
+    color: #D1410C;
+}
+
+.event-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 356px;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.event-btn {
+    color: white;
+    background: #D1410C;
+    width: 100px;
+    height: 40px;
+    border: none;
+}
+
+.event-btn-discard {
+    background-color: white;
+}
+
+.event-btn:hover {
+    background-color: rgba(209, 65, 12, 0.8);
+    cursor: pointer;
+}
+
+.event-btn-discard:hover {
+    background-color: rgba(240, 240, 240);
+    cursor: pointer;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+}
