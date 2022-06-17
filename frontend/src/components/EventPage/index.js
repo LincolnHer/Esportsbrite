@@ -14,9 +14,9 @@ const EventPage = (isLoaded) => {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
 
-  const user = useSelector((state) => state.session.user);
-  const users = useSelector((state) => state.users);
-  const events = useSelector((state) => state.events);
+  const user = useSelector((state) => state?.session?.user);
+  const users = useSelector((state) => state?.users);
+  const events = useSelector((state) => state?.events);
   const usersArr = Object.values(users);
   const eventsArr = Object.values(events);
   const currEvent = eventsArr.find((event) => event?.id === +eventId);
@@ -28,7 +28,7 @@ const EventPage = (isLoaded) => {
   const month = dateStr?.slice(4, 7);
   const day = dateStr?.slice(8, 10);
 
-  console.log(showModal);
+  console.log(user);
 
   const deleteEvent = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const EventPage = (isLoaded) => {
   };
 
   useEffect(() => {
-    dispatch(ticketActions.getTicketsThunk(user.id));
+    if (user) dispatch(ticketActions.getTicketsThunk(user?.id));
   }, [dispatch]);
 
   return (
