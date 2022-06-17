@@ -18,10 +18,6 @@ const HomePage = (isLoaded) => {
   const events = useSelector((state) => state.events);
   const eventsArr = Object.values(events);
 
-  useEffect(() => {
-    dispatch(ticketActions.getTicketsThunk(user.id));
-  }, [dispatch]);
-
   return (
     <div className="Splash-Home">
       <Navigation isLoaded={isLoaded} />

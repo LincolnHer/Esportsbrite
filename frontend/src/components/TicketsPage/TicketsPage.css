@@ -1,0 +1,76 @@
+
+.event-details.ticket {
+    height: 266px;
+    align-items: center;
+}
+
+.ticket-header {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    width: 1000px;
+    height: 128px;
+}
+
+.user-name {
+    height: 128px;
+}
+
+.event-container.ticket {
+    background-color: rgb(250, 250, 250)
+}
+
+.ticket-container{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    word-break: break-word; /* doesn't work in firefox */
+    word-wrap: break-word;
+    white-space: normal;
+
+}
+
+.ticket-description {
+    min-width: 0;
+    font-size: 18px;
+    padding-bottom: 32px;
+}
+
+.ticket-card {
+    display: flex;
+    width: 800px;
+    height: 190px;
+    padding: 30px 10px;
+}
+
+.event-img-ticket {
+    background-image: url("https://www.technewsworld.com/wp-content/uploads/sites/3/2021/09/esports-arena.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 130px;
+    width: 297px;
+    margin: 0 10px 0 10px;
+}
+
+.user-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+    height: fit-content;
+}
+
+.ticket-length {
+    margin-left: 10px;
+}
+
+.ticket-length {
+    font-size: 14px;
+}
