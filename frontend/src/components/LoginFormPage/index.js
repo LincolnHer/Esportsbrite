@@ -19,7 +19,8 @@ function LoginFormPage() {
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        const filterErr = data?.errors?.filter(error => error !== "Invalid value")
+        if (data && data.errors) setErrors(filterErr);
       }
     );
   };

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as ticketActions from "../../store/tickets";
 import backgroundImg from "../../assets/arena.jpeg";
 import EventsIndex from "../SplashPage/EventsIndex";
 import Navigation from "../Navigation";
@@ -17,10 +16,6 @@ const HomePage = (isLoaded) => {
   const user = useSelector((state) => state.session.user);
   const events = useSelector((state) => state.events);
   const eventsArr = Object.values(events);
-
-  useEffect(() => {
-    dispatch(ticketActions.getTicketsThunk(user.id));
-  }, [dispatch]);
 
   return (
     <div className="Splash-Home">

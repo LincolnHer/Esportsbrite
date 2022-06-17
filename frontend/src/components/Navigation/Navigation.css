@@ -62,8 +62,30 @@
 
 .splash-create-link {
   color: blue;
-  padding: 23px 0 23px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 132px;
+  height: 72px;
 }
+
+.splash-ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 82px;
+  height: 72px;
+ }
+
+ .splash-create-link:hover {
+    background-color: #F5F5F5;
+ }
+
+ .splash-ticket:hover {
+   background-color: #F5F5F5;
+ }
 
 .login-signup {
   padding: 23px 0 23px 0;
@@ -77,9 +99,9 @@
   padding: 0 10px 0 5px;
 }
 
-.splash-link:hover {
+/* .splash-link:hover {
   background-color: #F5F5F5;
-}
+} */
 
 .splash-link-profile {
   height: 72px;
