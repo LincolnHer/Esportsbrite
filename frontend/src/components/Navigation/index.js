@@ -2,12 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
-  // <i class="fa-brands fa-github"></i>
-  // <i class="fa-brands fa-linkedin"></i>
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;

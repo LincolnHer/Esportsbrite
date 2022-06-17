@@ -22,7 +22,7 @@ const EventFormPage = (isLoaded) => {
   const submit = async (e) => {
     e.preventDefault();
     const eventFormVal = {
-      hostId: user.id,
+      hostId: user?.id,
       category: category,
       date: date,
       description: description,
@@ -69,7 +69,7 @@ const EventFormPage = (isLoaded) => {
       <Navigation isLoaded={isLoaded} />
       <form onSubmit={submit} className="event-form">
         <ul className="errors">
-          {errors.map((error, idx) => (
+          {errors?.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
@@ -149,7 +149,7 @@ const EventFormPage = (isLoaded) => {
           <button
             className="event-btn"
             type="submit"
-            disabled={errors.length > 0}
+            disabled={errors?.length > 0}
           >
             Save
           </button>

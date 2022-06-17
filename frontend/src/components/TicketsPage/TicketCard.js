@@ -40,7 +40,7 @@ const TicketCard = (ticket) => {
 
   return (
     <>
-      <NavLink to={`/events/${ticketEvent.id}`}>
+      <NavLink to={`/events/${ticketEvent?.id}`}>
         <div className="ticket-card">
           <div className="ticket-date">
             <div className="ticket-month">{month}</div>
