@@ -28,7 +28,7 @@ const EditEventFormPage = (isLoaded) => {
   const submit = async (e) => {
     e.preventDefault();
     const eventFormVal = {
-      hostId: user.id,
+      hostId: user?.id,
       category: category,
       date: date,
       description: description,

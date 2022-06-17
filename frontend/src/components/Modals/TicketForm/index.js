@@ -9,9 +9,9 @@ const TicketForm = () => {
   const history = useHistory();
   const { eventId } = useParams();
   const user = useSelector((state) => state.session.user);
-  const events = useSelector((state) => state.events)
-  const eventsArr = Object.values(events)
-  const currEvent = eventsArr?.find(event => event?.id == + eventId)
+  const events = useSelector((state) => state.events);
+  const eventsArr = Object.values(events);
+  const currEvent = eventsArr?.find((event) => event?.id == +eventId);
   const ticket = useSelector((state) => state.tickets);
   const [quantity, setQuantity] = useState(0);
 
@@ -23,8 +23,13 @@ const TicketForm = () => {
       quantity: quantity,
     };
 
-    const newTicket = await dispatch(postTicketThunk(ticketFormVal));
-    history.push("/tickets");
+    if (user) {
+      const newTicket = await dispatch(postTicketThunk(ticketFormVal));
+      history.push("/tickets");
+    } else {
+      history.push("/login")
+    }
+
   };
 
   return (
@@ -47,7 +52,9 @@ const TicketForm = () => {
           <div className="ticket-price">${currEvent?.price}.00</div>
         </div>
         <div className="ticket-btn-container">
-          <button className="event-btn">Register</button>
+          <button className="event-btn" type="submit">
+            Register
+          </button>
         </div>
       </div>
     </form>

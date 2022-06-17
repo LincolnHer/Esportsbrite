@@ -29,9 +29,6 @@ const TicketCard = (ticket) => {
   const day = dateStr?.slice(8, 10);
   const calcPrice = ticketEvent?.price * ticket?.ticket?.quantity;
 
-  // console.log(ticket?.ticket)
-  // console.log(ticketEvent)
-
   const onClose = () => {
     setShowModal(false);
   };
@@ -92,7 +89,7 @@ const TicketCard = (ticket) => {
               x
             </div>
           </div>
-          <TicketEditForm event={ticketEvent} ticket={ticket}/>
+          <TicketEditForm event={ticketEvent} ticket={ticket} />
         </Modal>
       )}
     </>

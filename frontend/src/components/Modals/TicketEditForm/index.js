@@ -5,8 +5,6 @@ import { putTicketThunk } from "../../../store/tickets";
 import ".././Modal.css";
 
 const TicketEditForm = ({ event, ticket }) => {
-    console.log(event)
-    console.log(ticket)
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
@@ -16,20 +14,21 @@ const TicketEditForm = ({ event, ticket }) => {
   const submit = async (e) => {
     e.preventDefault();
     const ticketFormVal = {
-    //   eventId: event?.id,
-    //   userId: user?.id,
+      //   eventId: event?.id,
+      //   userId: user?.id,
       quantity: quantity,
     };
 
-    const updatedTicket = await dispatch(putTicketThunk(ticketFormVal, ticket?.ticket?.id));
-
+    const updatedTicket = await dispatch(
+      putTicketThunk(ticketFormVal, ticket?.ticket?.id)
+    );
   };
 
   return (
     <form className="ticket-form" onSubmit={submit}>
       <div className="ticket-form-container">
         <div className="ticket-label-container">
-            <h1>Update</h1>
+          <h1>Update</h1>
           <label className="ticket-label">
             Tickets *
             <input
@@ -45,7 +44,9 @@ const TicketEditForm = ({ event, ticket }) => {
           <div className="ticket-price">${event?.price}.00</div>
         </div>
         <div className="ticket-btn-container">
-          <button className="event-btn" type="submit">Register</button>
+          <button className="event-btn" type="submit">
+            Register
+          </button>
         </div>
       </div>
     </form>

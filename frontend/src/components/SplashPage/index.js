@@ -16,7 +16,6 @@ const SplashPage = (isLoaded) => {
   const eventsArr = Object.values(events);
   const dateStr = eventsArr[0]?.date;
   const newDate = new Date(dateStr);
-  console.log(newDate);
 
   return (
     <div className="Splash-Home">

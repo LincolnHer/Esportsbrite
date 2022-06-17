@@ -28,7 +28,6 @@ const EventPage = (isLoaded) => {
   const month = dateStr?.slice(4, 7);
   const day = dateStr?.slice(8, 10);
 
-  console.log(user);
 
   const deleteEvent = async (e) => {
     e.preventDefault();
