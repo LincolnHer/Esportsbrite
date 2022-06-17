@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(250, 250, 250);
 }
 
 .event-container {
@@ -20,14 +21,19 @@
 
 .event-ticket {
     border-top: 1px solid rgba(230,230,230, 1);
+    border-left: 1px solid rgba(230,230,230, 1);
+    border-right: 1px solid rgba(230,230,230, 1);;
     width: 1080px;
     height: 44px;
+    background-color: white;
 }
 
 .event-about {
     border-top: 1px solid rgba(230,230,230, 1);
+    border-left: 1px solid rgba(230,230,230, 1);
+    border-right: 1px solid rgba(230,230,230, 1);;
     width: 1080px;
-
+    background-color: white;
 }
 
 .event-img-2 {
@@ -38,6 +44,9 @@
     position: relative;
     height: 360px;
     width: 806px;
+    background-color: white;
+    border-left: 1px solid rgba(230,230,230, 1);
+    border-right: 1px solid rgba(230,230,230, 1);;
 }
 
 .event-date-2 {
@@ -93,6 +102,9 @@
     width: 274px;
     height: 360px;
     padding: 16px 16px;
+    background-color: white;
+    border-left: 1px solid rgba(230,230,230, 1);
+    border-right: 1px solid rgba(230,230,230, 1);;
 }
 /*
 .event-card-content-2>div {

@@ -1,5 +1,6 @@
 .event-main.ticket {
     height: fit-content;
+    background-color: white;
 }
 
 .event-details.ticket {
