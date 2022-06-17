@@ -39,13 +39,13 @@ function ProfileButton({ user }) {
         onMouseEnter={() => setShowMenu(true)}
         onMouseLeave={() => setShowMenu(false)}
       >
-        <i className="fas fa-user-circle" /> 
+        <i className="fas fa-user-circle" />
         <span className="profile-email">{user.email}</span>
         {showMenu && (
           <div className="profile-dropdown">
-            <div className="menu">
+            {/* <div className="menu">
               <NavLink to="/events/all">Manage my events</NavLink>
-            </div>
+            </div> */}
             <div onClick={logout} className="menu">
               Log Out
             </div>

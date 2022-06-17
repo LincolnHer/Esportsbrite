@@ -1,14 +1,19 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import Navigation from "../Navigation";
+import { Modal } from "../../context/Modal";
 import { deleteEventThunk } from "../../store/events";
+import TicketForm from "../Modals/TicketForm";
+import * as ticketActions from "../../store/tickets";
 import "./EventPage.css";
-import { useState } from "react";
 
 const EventPage = (isLoaded) => {
   const { eventId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+
   const user = useSelector((state) => state.session.user);
   const users = useSelector((state) => state.users);
   const events = useSelector((state) => state.events);
@@ -17,14 +22,13 @@ const EventPage = (isLoaded) => {
   const currEvent = eventsArr.find((event) => event?.id === +eventId);
   const host = usersArr?.find((user) => user?.id === currEvent?.hostId);
   const owner = user?.id === currEvent?.hostId;
-  // console.log(user)
-  // console.log(usersArr)
-  console.log("OWNER EXISTS", owner);
   const newDate = new Date(currEvent?.date);
   const dateStr = newDate?.toDateString();
   // Tue Oct 04 2022
   const month = dateStr?.slice(4, 7);
   const day = dateStr?.slice(8, 10);
+
+  console.log(showModal);
 
   const deleteEvent = async (e) => {
     e.preventDefault();
@@ -32,12 +36,19 @@ const EventPage = (isLoaded) => {
     history.push("/");
   };
 
+  const onClose = () => {
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    dispatch(ticketActions.getTicketsThunk(user.id));
+  }, [dispatch]);
+
   return (
     <div className="Splash-Home">
       <Navigation isLoaded={isLoaded} />
       <main className="event-main">
         <div className="event-container">
-          {/* <h1>Event Page</h1> */}
           <div className="event-details">
             <div className="event-img-2"></div>
             <div className="event-card-content-2">
@@ -73,7 +84,25 @@ const EventPage = (isLoaded) => {
             </div>
           </div>
           <div className="event-ticket">
-            <button className="ticket-btn-2">Tickets</button>
+            <button className="ticket-btn-2" onClick={() => setShowModal(true)}>
+              Tickets
+            </button>
+              {showModal && (
+                <Modal
+                  // onClose={() => {
+                  //   setTimeout(() => {
+                  //     setShowModal(false);
+                  //   }, 1);
+                  // }}
+                >
+                  <div className="close-modal">
+                    <div className="close-btn" onClick={onClose}>
+                      x
+                    </div>
+                  </div>
+                  <TicketForm />
+                </Modal>
+              )}
           </div>
           <div className="event-about">
             <div className="event-description-container">
