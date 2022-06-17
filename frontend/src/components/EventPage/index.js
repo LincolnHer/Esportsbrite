@@ -17,9 +17,9 @@ const EventPage = (isLoaded) => {
   const user = useSelector((state) => state?.session?.user);
   const users = useSelector((state) => state?.users);
   const events = useSelector((state) => state?.events);
-  const usersArr = Object.values(users);
-  const eventsArr = Object.values(events);
-  const currEvent = eventsArr.find((event) => event?.id === +eventId);
+  const usersArr = Object?.values(users);
+  const eventsArr = Object?.values(events);
+  const currEvent = eventsArr?.find((event) => event?.id === +eventId);
   const host = usersArr?.find((user) => user?.id === currEvent?.hostId);
   const owner = user?.id === currEvent?.hostId;
   const newDate = new Date(currEvent?.date);

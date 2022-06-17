@@ -42,7 +42,7 @@ function LoginFormPage() {
           <h1 className="create-login">Log in</h1>
           <form onSubmit={handleSubmit} className="split-content form">
             <ul className="errors">
-              {errors.map((error, idx) => (
+              {errors?.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul>

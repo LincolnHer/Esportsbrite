@@ -10,7 +10,7 @@ const EventsIndex = ({ event }) => {
   const dateStr = newDate?.toDateString();
 
   return (
-    <NavLink to={`/events/${event.id}`} className="event-card">
+    <NavLink to={`/events/${event?.id}`} className="event-card">
       <div className="event-img"></div>
       <div className="event-card-content">
         <div className="event-name">{event?.name}</div>

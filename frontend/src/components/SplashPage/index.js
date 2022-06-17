@@ -14,8 +14,8 @@ const backgroundStyle = {
 const SplashPage = (isLoaded) => {
   const events = useSelector((state) => state.events);
   const eventsArr = Object.values(events);
-  const dateStr = eventsArr[0]?.date;
-  const newDate = new Date(dateStr);
+  // const dateStr = eventsArr[0]?.date;
+  // const newDate = new Date(dateStr);
 
   return (
     <div className="Splash-Home">
