@@ -43,10 +43,13 @@ const EventPage = (isLoaded) => {
             <div className="event-card-content-2">
               <div className="event-date-2">{month}</div>
               <div className="event-date-3">{day}</div>
-              <div className="event-name">{currEvent?.name}</div>
-              {/* <div className="event-location">{currEvent?.location}</div> */}
-              <div className="event-host-2">
-                <span className="by">by</span> {host?.username}
+              <div className="event-name-container">
+                <div className="event-name-2">{currEvent?.name}</div>
+              </div>
+              <div className="event-name-container">
+                <div className="event-host-2">
+                  <span className="by">by</span> {host?.username}
+                </div>
               </div>
               <div className="event-btn-container-2">
                 {owner && (
@@ -66,6 +69,7 @@ const EventPage = (isLoaded) => {
                   </>
                 )}
               </div>
+              <div className="event-price">${currEvent?.price}.00</div>
             </div>
           </div>
           <div className="event-ticket">

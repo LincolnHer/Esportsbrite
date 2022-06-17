@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as ticketActions from "../../store/tickets";
 import backgroundImg from "../../assets/arena.jpeg";
 import EventsIndex from "../SplashPage/EventsIndex";
 import Navigation from "../Navigation";

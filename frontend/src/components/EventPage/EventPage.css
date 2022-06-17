@@ -53,6 +53,23 @@
     padding-top: 4px;
     margin-top: 6px;
     color: blue;
+    min-width: 0;
+}
+
+.event-name-container {
+    display: flex;
+    width: 242px;
+    word-break: break-word; /* doesn't work in firefox */
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.event-name-2 {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 4px;
+    margin-top: 6px;
+    min-width: 0;
 }
 
 .by {
@@ -77,12 +94,12 @@
     height: 360px;
     padding: 16px 16px;
 }
-
+/*
 .event-card-content-2>div {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
+} */
 
 .event-btn-container-2 {
     display: flex;
@@ -144,4 +161,8 @@
 
 .event-span {
     font-weight: bold;
+}
+
+.event-price {
+    margin-top: 80px;
 }
