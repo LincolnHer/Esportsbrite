@@ -9,6 +9,9 @@ const TicketForm = () => {
   const history = useHistory();
   const { eventId } = useParams();
   const user = useSelector((state) => state.session.user);
+  const events = useSelector((state) => state.events)
+  const eventsArr = Object.values(events)
+  const currEvent = eventsArr?.find(event => event?.id == + eventId)
   const ticket = useSelector((state) => state.tickets);
   const [quantity, setQuantity] = useState(0);
 
@@ -28,6 +31,7 @@ const TicketForm = () => {
     <form className="ticket-form" onSubmit={submit}>
       <div className="ticket-form-container">
         <div className="ticket-label-container">
+          <h1>Purchase</h1>
           <label className="ticket-label">
             Tickets *
             <input
@@ -40,7 +44,7 @@ const TicketForm = () => {
             />
           </label>
           <div className="general-admission">General Admission</div>
-          <div className="ticket-price">$32.00</div>
+          <div className="ticket-price">${currEvent?.price}.00</div>
         </div>
         <div className="ticket-btn-container">
           <button className="event-btn">Register</button>
