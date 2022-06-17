@@ -55,7 +55,6 @@ router.delete('/:ticketId', asyncHandler(async(req, res) => {
     const userId = await ticket.userId
     ticket.destroy()
 
-    console.log("BACKEND", oldTicket)
     // const tickets = await Ticket.findAll({
     //     where: {
     //         userId: userId

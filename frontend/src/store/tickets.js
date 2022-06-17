@@ -95,7 +95,6 @@ export const deleteTicketThunk = (ticket) => async (dispatch) => {
 
   if (res.ok) {
     const ticket = await res.json();
-    console.log("JSON RES.....", ticket)
     dispatch(deleteTicket(ticket));
   }
 };
