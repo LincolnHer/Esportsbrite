@@ -43,7 +43,7 @@ const TicketEditForm = () => {
           <div className="ticket-price">$32.00</div>
         </div>
         <div className="ticket-btn-container">
-          <button className="event-btn">Register</button>
+          <button className="event-btn" type="submit">Register</button>
         </div>
       </div>
     </form>

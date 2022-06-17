@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { Modal } from "../../context/Modal";
 import { deleteTicketThunk } from "../../store/tickets";
 
 const TicketCard = (ticket) => {
   const dispatch = useDispatch()
   const events = useSelector((state) => state?.events)
+
+  const [showModal, setShowModal] = useState()
+
   const eventsArr = Object.values(events)
   const ticketEvent = eventsArr.find(event => event?.id === ticket?.ticket?.eventId)
   const createdAt = ticket?.ticket?.createdAt
@@ -52,7 +57,7 @@ const TicketCard = (ticket) => {
           <div>price: ${calcPrice}.00</div>
           <div className="ticket-btn">
             <button className="event-btn-ticket"
-              onClick={test}
+              onClick={() => setShowModal(true)}
             >edit</button>
             <button
               className="event-btn-ticket"
