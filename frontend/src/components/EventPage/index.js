@@ -23,8 +23,8 @@ const EventPage = (isLoaded) => {
   const newDate = new Date(currEvent?.date);
   const dateStr = newDate?.toDateString();
   // Tue Oct 04 2022
-  const month = dateStr.slice(4, 7);
-  const day = dateStr.slice(8, 10);
+  const month = dateStr?.slice(4, 7);
+  const day = dateStr?.slice(8, 10);
 
   const deleteEvent = async (e) => {
     e.preventDefault();

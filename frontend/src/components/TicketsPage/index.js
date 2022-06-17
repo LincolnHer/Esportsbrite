@@ -3,13 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Navigation from "../Navigation";
 import * as ticketActions from "../../store/tickets";
 import "./TicketsPage.css";
+import TicketCard from "./TicketCard";
 
 const TicketsPage = (isLoaded) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-  const events = useSelector((state) => state.events);
   const tickets = useSelector((state) => state.tickets);
-  const eventsArr = Object.values(events);
   const ticketsArr = Object.values(tickets);
 
   useEffect(() => {
@@ -32,19 +31,14 @@ const TicketsPage = (isLoaded) => {
                   {ticketsArr?.length} tickets
                 </div>
               </div>
-            </div>Î
+            </div>
           </div>
-          <div className="event-about">
+          <div className="event-about ticket">
             <div className="ticket-container">
               <div className="ticket-description">Tickets</div>
-              <div className="ticket-card">
-                <div className="ticket-date">
-                  <div className="ticket-month">Jun</div>
-                  <div className="ticket-day">14</div>
-                </div>
-                <div className="event-img-ticket">Img</div>
-                <div className="ticket-event">Event name and Date</div>
-              </div>
+              {ticketsArr?.map((ticket, idx) => (
+                <TicketCard key={idx} ticket={ticket}/>
+              ))}
             </div>
           </div>
         </div>
