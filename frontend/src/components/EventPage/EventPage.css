@@ -24,8 +24,9 @@
     border-left: 1px solid rgba(230,230,230, 1);
     border-right: 1px solid rgba(230,230,230, 1);;
     width: 1080px;
-    height: 44px;
+    height: 66px;
     background-color: white;
+    padding: 10px 0 10px 0 ;
 }
 
 .event-about {
@@ -43,7 +44,7 @@
     background-size: cover;
     position: relative;
     height: 360px;
-    width: 806px;
+    width: 720px;
     background-color: white;
     border-left: 1px solid rgba(230,230,230, 1);
     border-right: 1px solid rgba(230,230,230, 1);;
@@ -91,15 +92,22 @@
     justify-content: flex-end;
 }
 
-.ticket-btn {
+.ticket-btn-2 {
     margin: 0 16px 0 16px;
+    color: white;
+    background-color: green;
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 44px;
+    width: 334px;
+    text-align: center;
 }
 
 .event-card-content-2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 274px;
+    width: 360px;
     height: 360px;
     padding: 16px 16px;
     background-color: white;

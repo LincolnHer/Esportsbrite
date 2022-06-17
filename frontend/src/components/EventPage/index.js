@@ -73,7 +73,7 @@ const EventPage = (isLoaded) => {
             </div>
           </div>
           <div className="event-ticket">
-            <button className="ticket-btn">Tickets</button>
+            <button className="ticket-btn-2">Tickets</button>
           </div>
           <div className="event-about">
             <div className="event-description-container">
