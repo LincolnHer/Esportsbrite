@@ -31,6 +31,7 @@ const TicketForm = () => {
     <form className="ticket-form" onSubmit={submit}>
       <div className="ticket-form-container">
         <div className="ticket-label-container">
+          <h1>Purchase</h1>
           <label className="ticket-label">
             Tickets *
             <input
