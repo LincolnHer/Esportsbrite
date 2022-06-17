@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(250, 250, 250);
+    padding-bottom: 20px;
 }
 
 .event-container {
@@ -30,6 +31,9 @@
 }
 
 .event-about {
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
     border-top: 1px solid rgba(230,230,230, 1);
     border-left: 1px solid rgba(230,230,230, 1);
     border-right: 1px solid rgba(230,230,230, 1);;
@@ -158,13 +162,6 @@
     width: 400px;
     padding-top: 50px;
     padding-left: 66px;
-}
-
-.event-about {
-    display: flex;
-    width: 1080px;
-    justify-content: flex-end;
-    height: 100vh;
 }
 
 .ev-date {
