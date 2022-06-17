@@ -12,9 +12,18 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="splash-link">
-          <NavLink to="/events/create" className="splash-create-link">
-            Create an Event
+        <div className="splash-links">
+          <NavLink to="/events/create">
+            <div className="splash-create-link">
+              <i class="fa-regular fa-square-plus"></i>
+              Create an Event
+            </div>
+          </NavLink>
+          <NavLink to="/tickets">
+            <div className="splash-ticket">
+              <i className="fa-solid fa-ticket"></i>
+              Tickets
+            </div>
           </NavLink>
         </div>
         <ProfileButton user={sessionUser} />
