@@ -70,6 +70,20 @@
   height: 72px;
 }
 
+.splash-create-link-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 132px;
+  height: 72px;
+}
+
+.splash-create-link-icons:hover {
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+
 .splash-ticket {
   display: flex;
   flex-direction: column;

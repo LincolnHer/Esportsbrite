@@ -5,7 +5,10 @@ import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 
+
 function Navigation({ isLoaded }) {
+    // <i class="fa-brands fa-github"></i>
+  // <i class="fa-brands fa-linkedin"></i>
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
@@ -13,6 +16,16 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className="splash-links">
+          <a href="https://github.com/LincolnHer" target="_blank" rel="noreferrer">
+              <div className="splash-create-link-icons">
+                  <i className="fa-brands fa-github fa-2x"></i>
+              </div>
+          </a>
+          <a href="https://www.linkedin.com/in/lincoln-her/" target="_blank" rel="noreferrer">
+              <div className="splash-create-link-icons">
+                  <i className="fa-brands fa-linkedin fa-2x"></i>
+              </div>
+          </a>
           <NavLink to="/events/create">
             <div className="splash-create-link">
               <i className="fa-regular fa-square-plus"></i>
