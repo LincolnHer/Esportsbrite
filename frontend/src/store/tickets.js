@@ -76,7 +76,7 @@ export const postTicketThunk = (event) => async (dispatch) => {
 };
 
 export const putTicketThunk = (ticket, ticketId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/events/${ticketId}`, {
+  const res = await csrfFetch(`/api/tickets/${ticketId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(ticket),
@@ -89,12 +89,13 @@ export const putTicketThunk = (ticket, ticketId) => async (dispatch) => {
 };
 
 export const deleteTicketThunk = (ticket) => async (dispatch) => {
-  const res = await csrfFetch(`/api/events/${ticket.id}`, {
+  const res = await csrfFetch(`/api/tickets/${ticket.id}`, {
     method: "DELETE",
   });
 
   if (res.ok) {
     const ticket = await res.json();
+    console.log("JSON RES.....", ticket)
     dispatch(deleteTicket(ticket));
   }
 };

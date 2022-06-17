@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { deleteTicketThunk } from "../../store/tickets";
 
 const TicketCard = (ticket) => {
-  const events = useSelector((state) => state.events)
+  const dispatch = useDispatch()
+  const events = useSelector((state) => state?.events)
   const eventsArr = Object.values(events)
   const ticketEvent = eventsArr.find(event => event?.id === ticket?.ticket?.eventId)
   const createdAt = ticket?.ticket?.createdAt
@@ -10,7 +12,6 @@ const TicketCard = (ticket) => {
   const dateCreated = createdAt?.slice(0,10)
   const time = createdAtDate?.toLocaleTimeString('en-us')
   const newDate = new Date(ticketEvent?.date);
-  console.log(createdAtDate)
   const hourMin = time.slice(0,4)
   const aMpM = time.slice(8,10)
   const time2 = hourMin + ' ' + aMpM
@@ -20,9 +21,16 @@ const TicketCard = (ticket) => {
   const day = dateStr?.slice(8,10)
   const calcPrice = ticketEvent?.price * ticket?.ticket?.quantity
 
+  console.log(ticket?.ticket)
+
   const test = (e) => {
     e.preventDefault()
     console.log("hello")
+  }
+
+  const deleteTicket = async (e) => {
+    e.preventDefault();
+    const oldTicket = await dispatch(deleteTicketThunk(ticket?.ticket))
   }
 
   return (
@@ -46,7 +54,13 @@ const TicketCard = (ticket) => {
             <button className="event-btn-ticket"
               onClick={test}
             >edit</button>
-            <button className="event-btn-ticket">delete</button>
+            <button
+              className="event-btn-ticket"
+              type="button"
+              onClick={deleteTicket}
+            >
+                delete
+            </button>
           </div>
         </div>
         <div className="ticket-id">purchased on:

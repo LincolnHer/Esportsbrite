@@ -50,17 +50,19 @@ router.put('/:ticketId', asyncHandler(async(req, res) => {
 router.delete('/:ticketId', asyncHandler(async(req, res) => {
     const ticketId = req.params.ticketId
 
+    const oldTicket = await Ticket.findByPk(ticketId)
     const ticket = await Ticket.findByPk(ticketId)
     const userId = await ticket.userId
     ticket.destroy()
 
-    const tickets = await Ticket.findAll({
-        where: {
-            userId: userId
-        }
-    })
+    console.log("BACKEND", oldTicket)
+    // const tickets = await Ticket.findAll({
+    //     where: {
+    //         userId: userId
+    //     }
+    // })
 
-    return res.json(tickets)
+    return res.json(oldTicket)
 }))
 
 module.exports = router
