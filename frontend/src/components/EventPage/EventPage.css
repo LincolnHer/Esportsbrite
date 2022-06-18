@@ -33,7 +33,9 @@
 .event-about {
     display: flex;
     justify-content: flex-end;
-    height: 100vh;
+    /* height: 100vh; */
+    height: auto;
+    padding-bottom: 75px;
     border-top: 1px solid rgba(230,230,230, 1);
     border-left: 1px solid rgba(230,230,230, 1);
     border-right: 1px solid rgba(230,230,230, 1);;

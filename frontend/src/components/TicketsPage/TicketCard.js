@@ -39,7 +39,7 @@ const TicketCard = (ticket) => {
   };
 
   return (
-    <>
+    <div className="ticket-card-container">
       <NavLink to={`/events/${ticketEvent?.id}`}>
         <div className="ticket-card">
           <div className="ticket-date">
@@ -92,7 +92,7 @@ const TicketCard = (ticket) => {
           <TicketEditForm event={ticketEvent} ticket={ticket} setShowModal={setShowModal} />
         </Modal>
       )}
-    </>
+    </div>
   );
 };
 

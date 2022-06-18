@@ -2,7 +2,8 @@
     white-space: nowrap;
     width: 100vw;
     /* height: 100vh; */
-    height: fit-content;
+    height: auto;
+    /* height: fit-content; */
 }
 
 .page-bkg {

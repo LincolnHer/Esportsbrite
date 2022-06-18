@@ -112,15 +112,16 @@
 }
 
 .ticket-card:hover {
-    border: 1px solid rgb(250, 250, 250);
+    /* border: 1px solid rgb(250, 250, 250);
     box-shadow: 0px 0px 10px rgb(210, 210, 210);
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 .ticket-btn {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    padding: 10px 10px 10px 0;
 }
 
 .event-btn-ticket {
@@ -160,11 +161,24 @@
 .event-about.ticket {
     display: flex;
     justify-content: flex-end;
-    height: fit-content;
+    height: auto;
     border-top: 1px solid rgba(230,230,230, 1);
     border-left: 1px solid rgba(230,230,230, 1);
     border-right: 1px solid rgba(230,230,230, 1);;
     width: 1080px;
     background-color: rgb(250, 250, 250);
-    padding-bottom: 15px;
+    padding-bottom: 75px;
+}
+
+.ticket-card-container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    /* padding: 15px 0 15px 0; */
+}
+
+.ticket-card-container:hover {
+    border: 1px solid rgb(250, 250, 250);
+    box-shadow: 0px 0px 10px rgb(210, 210, 210);
+    border-radius: 5px;
 }
