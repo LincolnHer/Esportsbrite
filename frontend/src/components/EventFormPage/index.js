@@ -49,9 +49,9 @@ const EventFormPage = (isLoaded) => {
     const valiErrs = [];
     if (category?.length > 40)
       valiErrs.push("Category name can't exceed 40 characters");
-    if (!date?.length) valiErrs.push("Please select a date for you event");
+    if (!date?.length) valiErrs.push("Please select a date for your event");
     if (!description?.length)
-      valiErrs.push("Please provide a description for you event");
+      valiErrs.push("Please provide a description for your event");
     if (description?.length > 255)
       valiErrs.push("Description can't exceed 255 characters");
     if (!location?.length)
@@ -60,7 +60,7 @@ const EventFormPage = (isLoaded) => {
       valiErrs.push("Location name can't exceed 255 characters");
     if (!name?.length) valiErrs.push("Event name is required");
     if (name?.length > 80)
-      valiErrs.push("Event name cant exceed 80 characters");
+      valiErrs.push("Event name can't exceed 80 characters");
     setErrors(valiErrs);
   }, [category, date, description, location, name]);
 
