@@ -28,7 +28,8 @@ const TicketEditForm = ({ event, ticket, setShowModal }) => {
 
   useEffect(() => {
     const valiErrs = []
-    if (quantity < 1) valiErrs.push("Quantity must be 1 or Greater")
+    if (quantity < 1) valiErrs.push("Quantity must be between 1 and 10")
+    if (quantity > 10) valiErrs.push("Quantity must be between 1 and 10")
     setErrors(valiErrs)
   }, [quantity])
 
@@ -49,6 +50,7 @@ const TicketEditForm = ({ event, ticket, setShowModal }) => {
               className="ticket-input"
               type="number"
               min="0"
+              max="10"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
               placeholder="0"
