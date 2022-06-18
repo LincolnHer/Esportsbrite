@@ -68,20 +68,16 @@ function Navigation({ isLoaded }) {
               <i className="fa-brands fa-linkedin fa-2x"></i>
             </div>
           </a>
-          <NavLink to="/events/create" className="splash-create-link">
+          <NavLink to="/events/create" className="splash-create-link-2">
             Create an Event
           </NavLink>
         </div>
-        <div className="splash-link">
-          <NavLink to="/login" className="login-signup">
-            Log In
-          </NavLink>
-        </div>
-        <div className="splash-link">
-          <NavLink to="/signup" className="login-signup">
-            Sign Up
-          </NavLink>
-        </div>
+        <NavLink to="/login" className="splash-create-link-3">
+          <div>Log In</div>
+        </NavLink>
+        <NavLink to="/signup" className="splash-create-link-3">
+          <div>Sign Up</div>
+        </NavLink>
       </>
     );
   }
