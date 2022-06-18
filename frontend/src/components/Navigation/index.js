@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
             </div>
           </a>
           <NavLink to="/events/create">
-            <div className="splash-create-link">
+            <div className="splash-create-link-2">
               <i className="fa-regular fa-square-plus"></i>
               Create an Event
             </div>
