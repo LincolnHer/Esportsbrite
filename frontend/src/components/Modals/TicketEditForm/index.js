@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { putTicketThunk } from "../../../store/tickets";
 import ".././Modal.css";
 
-const TicketEditForm = ({ event, ticket }) => {
+const TicketEditForm = ({ event, ticket, setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const tickets = useSelector((state) => state.tickets);
   const [quantity, setQuantity] = useState(ticket?.ticket?.quantity);
+  const [errors, setErrors] = useState([])
 
   const submit = async (e) => {
     e.preventDefault();
@@ -22,13 +23,26 @@ const TicketEditForm = ({ event, ticket }) => {
     const updatedTicket = await dispatch(
       putTicketThunk(ticketFormVal, ticket?.ticket?.id)
     );
+    setShowModal(false);
   };
+
+  useEffect(() => {
+    const valiErrs = []
+    if (quantity < 1) valiErrs.push("Quantity must be 1 or Greater")
+    setErrors(valiErrs)
+  }, [quantity])
 
   return (
     <form className="ticket-form" onSubmit={submit}>
+      <ul className="errors">
+        {errors?.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <div className="ticket-form-container">
         <div className="ticket-label-container">
           <h1>Update</h1>
+          <h4>{event?.name}</h4>
           <label className="ticket-label">
             Tickets *
             <input
@@ -44,7 +58,7 @@ const TicketEditForm = ({ event, ticket }) => {
           <div className="ticket-price">${event?.price}.00</div>
         </div>
         <div className="ticket-btn-container">
-          <button className="event-btn" type="submit">
+          <button className="event-btn" type="submit" disabled={errors.length > 0}>
             Register
           </button>
         </div>

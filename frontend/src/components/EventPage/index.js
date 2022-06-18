@@ -99,7 +99,7 @@ const EventPage = (isLoaded) => {
                       x
                     </div>
                   </div>
-                  <TicketForm />
+                  <TicketForm setShowModal={setShowModal}/>
                 </Modal>
               )}
           </div>

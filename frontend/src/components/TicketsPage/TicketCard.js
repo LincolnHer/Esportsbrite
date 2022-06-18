@@ -89,7 +89,7 @@ const TicketCard = (ticket) => {
               x
             </div>
           </div>
-          <TicketEditForm event={ticketEvent} ticket={ticket} />
+          <TicketEditForm event={ticketEvent} ticket={ticket} setShowModal={setShowModal} />
         </Modal>
       )}
     </>
