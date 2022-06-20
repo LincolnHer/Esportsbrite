@@ -22,7 +22,10 @@ const TicketCard = (ticket) => {
   const newDate = new Date(ticketEvent?.date);
   const hourMin = time.slice(0, 4);
   const aMpM = time.slice(8, 10);
+  const hourMin2 = time.slice(0, 5);
+  const aMpM2 = time.slice(8, 11);
   const time2 = hourMin + " " + aMpM;
+  const time3 = hourMin2 + " " + aMpM2
   const dateStr = newDate?.toDateString();
   const ticketDate = dateStr?.slice(0, 15);
   const month = dateStr?.slice(4, 7);
@@ -56,7 +59,7 @@ const TicketCard = (ticket) => {
           <div className="ticket-id">
             purchased on:
             <div className="purchase-date">{dateCreated}</div>
-            <div className="purchase-time">{time2}</div>
+            <div className="purchase-time">{time.length === 9 ? time2 : time3}</div>
           </div>
         </div>
       </NavLink>
