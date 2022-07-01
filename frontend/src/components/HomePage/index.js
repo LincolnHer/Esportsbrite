@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import backgroundImg from "../../assets/arena.jpeg";
 import EventsIndex from "../SplashPage/EventsIndex";
 import Navigation from "../Navigation";
+import Footer from "../SplashPage/footer";
 
 const backgroundStyle = {
   backgroundImage: `url(${backgroundImg})`,
@@ -38,6 +39,7 @@ const HomePage = (isLoaded) => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

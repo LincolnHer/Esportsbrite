@@ -44,7 +44,7 @@ const EventPage = (isLoaded) => {
   }, [dispatch]);
 
   return (
-    <div className="Splash-Home">
+    <div className="Splash-Home-2">
       <Navigation isLoaded={isLoaded} />
       <main className="event-main">
         <div className="event-container">
