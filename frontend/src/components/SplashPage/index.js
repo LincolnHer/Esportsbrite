@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Navigation from "../Navigation";
 import backgroundImg from "../../assets/arena.jpeg";
 import EventsIndex from "./EventsIndex";
+import Footer from "./footer";
 import "./SplashPage.css";
 
 const backgroundStyle = {
@@ -35,6 +36,7 @@ const SplashPage = (isLoaded) => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

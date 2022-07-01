@@ -12,24 +12,6 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className="splash-links">
-          <a
-            href="https://github.com/LincolnHer"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="splash-create-link-icons">
-              <i className="fa-brands fa-github fa-2x"></i>
-            </div>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lincoln-her/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="splash-create-link-icons">
-              <i className="fa-brands fa-linkedin fa-2x"></i>
-            </div>
-          </a>
           <NavLink to="/events/create">
             <div className="splash-create-link-2">
               <i className="fa-regular fa-square-plus"></i>
@@ -50,24 +32,6 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div className="splash-link">
-          <a
-            href="https://github.com/LincolnHer"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="splash-create-link-icons">
-              <i className="fa-brands fa-github fa-2x"></i>
-            </div>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lincoln-her/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="splash-create-link-icons">
-              <i className="fa-brands fa-linkedin fa-2x"></i>
-            </div>
-          </a>
           <NavLink to="/events/create" className="splash-create-link-2">
             Create an Event
           </NavLink>
