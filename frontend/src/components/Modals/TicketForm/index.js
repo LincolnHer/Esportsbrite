@@ -63,7 +63,7 @@ const TicketForm = ({ setShowModal }) => {
             />
           </label>
           <div className="general-admission">General Admission</div>
-          <div className="ticket-price">${currEvent?.price}.00</div>
+          <div className="ticket-price">${currEvent?.price * quantity}.00</div>
         </div>
         <div className="ticket-btn-container">
           <button className="event-btn" type="submit" disabled={errors.length > 0}>
