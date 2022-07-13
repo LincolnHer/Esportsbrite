@@ -47,9 +47,11 @@ const EventFormPage = (isLoaded) => {
 
   useEffect(() => {
     const valiErrs = [];
+    if (!name?.length) valiErrs.push("Event name is required");
+    if (name?.length > 80)
+      valiErrs.push("Event name can't exceed 80 characters");
     if (category?.length > 40)
       valiErrs.push("Category name can't exceed 40 characters");
-    if (!date?.length) valiErrs.push("Please select a date for your event");
     if (!description?.length)
       valiErrs.push("Please provide a description for your event");
     if (description?.length > 255)
@@ -58,9 +60,7 @@ const EventFormPage = (isLoaded) => {
       valiErrs.push("Please provide a location for your event");
     if (location?.length > 255)
       valiErrs.push("Location name can't exceed 255 characters");
-    if (!name?.length) valiErrs.push("Event name is required");
-    if (name?.length > 80)
-      valiErrs.push("Event name can't exceed 80 characters");
+    if (!date?.length) valiErrs.push("Please select a date for your event");
     setErrors(valiErrs);
   }, [category, date, description, location, name]);
 
@@ -68,60 +68,117 @@ const EventFormPage = (isLoaded) => {
     <>
       <Navigation isLoaded={isLoaded} />
       <form onSubmit={submit} className="event-form">
-        <ul className="errors">
-          {errors?.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <h1 className="event-form-title">Create Event</h1>
-        <label>
-          Name *
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            // placeholder="Be clear and descriptive"
-          />
-        </label>
-        <label>
-          Category
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            // placeholder="your category can be null"
-          />
-        </label>
-        <label htmlFor="start">
-          Date *
-          <input
-            id="start"
-            name="start"
-            type="date"
-            value={date}
-            min={currDate}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </label>
-        <label>
-          Description *
-          <textarea
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            // placeholder="describe details about your event"
-          />
-        </label>
-        <label>
-          Location *
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            // placeholder="Select a venue or address"
-          />
-        </label>
-        {/* <label>
+        <div className="event-form-container">
+          <ul className="errors">
+            {errors?.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <h1 className="event-form-title">Create Event</h1>
+          <div className="basic-info-container">
+            <div className="basic-icon">
+              <i className="fa-solid fa-t fa-3x" />
+            </div>
+            <div className="basic-info">
+              <h1 className="basic-title">Basic Info</h1>
+              <p className="sub-title">
+                Name your event and tell people why they should attend.
+              </p>
+              <label>
+                Name *
+                <input
+                  className="event-input"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  // placeholder="Be clear and descriptive"
+                />
+              </label>
+              <label>
+                Category
+                <input
+                  className="event-input"
+                  type="text"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  // placeholder="your category can be null"
+                />
+              </label>
+              <label>
+                Description *
+                <textarea
+                  className="event-input"
+                  type="text"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  // placeholder="describe details about your event"
+                />
+              </label>
+              <label>
+                Price *
+                <div className="price-container">
+                  <span>$</span>
+                  <input
+                    className="event-input"
+                    type="number"
+                    min="0"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    placeholder="$0.00"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <hr className="hr-tag" />
+          <div className="location-container">
+            <div className="basic-icon">
+              <i className="fa-solid fa-map-location fa-3x" />
+            </div>
+            <div className="location">
+              <h1 className="basic-title">Location</h1>
+              <p className="sub-title">
+                Help people discover about your event and let attendees know
+                where to show up.
+              </p>
+              <label>
+                Location *
+                <input
+                  className="event-input"
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  // placeholder="Select a venue or address"
+                />
+              </label>
+            </div>
+          </div>
+          <hr className="hr-tag" />
+          <div className="date-container">
+            <div className="basic-icon">
+              <i className="fa-regular fa-calendar-days fa-3x" />
+            </div>
+            <div className="date">
+              <h1 className="basic-title">Date</h1>
+              <p className="sub-title">
+                Tell attendees when you're event starts so they can make plans
+                to attend.
+              </p>
+              <label>
+                Date *
+                <input
+                  className="event-input-date"
+                  // id="start"
+                  // name="start"
+                  type="date"
+                  value={date}
+                  min={currDate}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </label>
+            </div>
+          </div>
+          {/* <label>
               imageUrl
               <input
                 type="text"
@@ -129,30 +186,18 @@ const EventFormPage = (isLoaded) => {
                 onChange
               />
             </label> */}
-        <label>
-          Price *
-          <div className="price-container">
-            <span>$</span>
-            <input
-              type="number"
-              min="0"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              placeholder="$0.00"
-            />
+          <div className="event-btn-container">
+            <button className="event-btn-discard" type="button" onClick={reset}>
+              Discard
+            </button>
+            <button
+              className="event-btn"
+              type="submit"
+              disabled={errors?.length > 0}
+            >
+              Save
+            </button>
           </div>
-        </label>
-        <div className="event-btn-container">
-          <button className="event-btn-discard" type="button" onClick={reset}>
-            Discard
-          </button>
-          <button
-            className="event-btn"
-            type="submit"
-            disabled={errors?.length > 0}
-          >
-            Save
-          </button>
         </div>
       </form>
     </>
