@@ -27,6 +27,7 @@
   cursor: pointer;
   height: 53px;
   padding: 16px 20px;
+  background-color: white;
 }
 
 .menu:hover {

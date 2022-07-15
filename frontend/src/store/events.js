@@ -3,7 +3,6 @@ import { csrfFetch } from "./csrf.js";
 // Actions
 const GET_EVENTS = "events/GET_EVENTS";
 const GET_EVENT = "events/GET_EVENT";
-const GET_USER_EVENTS = "events/GET_USER_EVENTS";
 const POST_EVENT = "events/POST_EVENT";
 const PUT_EVENT = "events/PUT_EVENT";
 const DELETE_EVENT = "events/DELETE_EVENT";
@@ -23,12 +22,6 @@ const getEvent = (eventId) => {
   };
 };
 
-const getUserEvents = (events) => {
-  return {
-    type: GET_USER_EVENTS,
-    payload: events,
-  };
-};
 
 const postEvent = (event) => {
   return {
@@ -70,15 +63,6 @@ export const getEventThunk = (eventId) => async (dispatch) => {
   }
 };
 
-export const getUserEventsThunk = (userId) => async (dispatch) => {
-  const res = await fetch(`/api/users/${userId}/events`);
-
-  if (res.ok) {
-    const userEvents = await res.json();
-    dispatch(getUserEvents(userEvents));
-  }
-};
-
 export const postEventThunk = (event) => async (dispatch) => {
   const res = await csrfFetch("/api/events", {
     method: "POST",
@@ -117,11 +101,10 @@ export const deleteEventThunk = (event) => async (dispatch) => {
 };
 
 // Reducer
-const initialState = { userEvents: {} };
+const initialState = {};
 
 export default function eventsReducer(state = initialState, action) {
   let newState;
-  let userEvents;
   switch (action.type) {
     case GET_EVENTS:
       newState = {};
@@ -131,14 +114,6 @@ export default function eventsReducer(state = initialState, action) {
       return newState;
     case GET_EVENT:
       newState = { ...state, event: action.payload };
-      return newState;
-    case GET_USER_EVENTS:
-      newState = { ...state };
-      userEvents = {};
-      action.payload.forEach((event) => {
-        userEvents[event.id] = event;
-      });
-      newState.userEvents = userEvents;
       return newState;
     case POST_EVENT:
       newState = { ...state, [action.payload.id]: action.payload };

@@ -32,6 +32,11 @@ function ProfileButton({ user }) {
     history.push("/");
   };
 
+  const manageEvent = (e) => {
+    e.preventDefault();
+    history.push("/events/all")
+  }
+
   return (
     <>
       <div
@@ -43,9 +48,10 @@ function ProfileButton({ user }) {
         <span className="profile-email">{user?.email}</span>
         {showMenu && (
           <div className="profile-dropdown">
-            {/* <div className="menu">
-              <NavLink to="/events/all">Manage my events</NavLink>
-            </div> */}
+            <div onClick={manageEvent} className="menu">
+              Manage my events
+              {/* <NavLink to="/events/all">Manage my events</NavLink> */}
+            </div>
             <div onClick={logout} className="menu">
               Log Out
             </div>

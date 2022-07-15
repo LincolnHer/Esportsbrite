@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Navigation from "../Navigation";
 import { postEventThunk } from "../../store/events";
 import "./EventForm.css";
@@ -74,6 +74,10 @@ const EventFormPage = (isLoaded) => {
               <li key={idx}>{error}</li>
             ))}
           </ul>
+          <div className="manage-evts-pg">
+            <p className="left-arrow"> {"<"} </p>
+            <NavLink className="title-link" to="/events/all">Events</NavLink>
+          </div>
           <h1 className="event-form-title">Create Event</h1>
           <div className="basic-info-container">
             <div className="basic-icon">
