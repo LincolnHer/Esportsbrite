@@ -4,12 +4,14 @@ import session from "./session";
 import eventsReducer from "./events";
 import ticketsReducer from "./tickets";
 import usersReducer from "./users";
+import userEventsReducer from "./userEvents";
 
 const rootReducer = combineReducers({
   session,
   events: eventsReducer,
   tickets: ticketsReducer,
   users: usersReducer,
+  userEvents: userEventsReducer,
 });
 
 let enhancer;

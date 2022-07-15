@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 40px;
+    padding-bottom: 100px;
 }
 
 .event-form-container {
@@ -28,7 +28,7 @@
 
 .event-form-title {
     color: #D1410C;
-    margin: 0;
+    margin: 20px 0 0 0;
 }
 
 .sub-title {
@@ -76,7 +76,7 @@
     display: flex;
     justify-content: flex-end;
     width: 960px;
-    margin-top: 16px;
+    margin-top: 40px;
     gap: 10px;
 }
 
@@ -117,4 +117,34 @@
     display: flex;
     flex-direction: row-reverse;
     font-size: 18px;
+}
+
+.manage-evts-pg {
+    display: flex;
+    justify-content: flex-start;
+    width: 960px;
+}
+
+.title-link {
+    color: blue;
+    width: fit-content;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+}
+
+.title-link:hover{
+    text-decoration: underline;
+}
+
+.left-arrow {
+    color: blue;
+    margin: 0;
+    width: 24px;
+    /* padding: 0px 1px 1px 1px; */
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
 }
