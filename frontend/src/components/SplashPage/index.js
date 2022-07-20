@@ -15,7 +15,7 @@ const backgroundStyle = {
 
 const SplashPage = (isLoaded) => {
   const [category, setCategory] = useState(1);
-  const [activeId, setActiveId] = useState();
+  const [activeId, setActiveId] = useState(1);
   const events = useSelector((state) => state.events);
   const categories = useSelector((state) => state.categories);
   const eventsArr = Object.values(events);
