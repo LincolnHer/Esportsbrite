@@ -153,7 +153,7 @@
     color: gray;
 }
 
-.categories-li.active {
+.active {
     color: blue;
     border-bottom: solid 2px blue;
 }
@@ -162,6 +162,12 @@
     cursor: pointer;
     color: black;
     border-bottom: solid 2px black;
+}
+
+.categories-li.active:hover {
+    cursor: pointer;
+    color: blue;
+    border-bottom: solid 2px blue;
 }
 
 /* .event-title {

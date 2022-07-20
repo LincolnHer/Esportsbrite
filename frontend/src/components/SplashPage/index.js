@@ -15,6 +15,7 @@ const backgroundStyle = {
 
 const SplashPage = (isLoaded) => {
   const [category, setCategory] = useState(1);
+  const [activeId, setActiveId] = useState();
   const events = useSelector((state) => state.events);
   const categories = useSelector((state) => state.categories);
   const eventsArr = Object.values(events);
@@ -73,8 +74,8 @@ const SplashPage = (isLoaded) => {
                   key={idx}
                 >
                   <li
-                    className="categories-li"
-                    onClick={() => setCategory(category?.id)}
+                    className={`categories-li ${activeId && idx === activeId - 1 ? "active" : ""}`}
+                    onClick={() => {setCategory(category?.id); setActiveId(category?.id)}}
                     >
                       {category.type}
                   </li>
