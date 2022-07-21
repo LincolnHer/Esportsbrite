@@ -1,5 +1,7 @@
+// Actions
 const GET_USER_EVENTS = "events/GET_USER_EVENTS";
 
+// Action Creators
 const getUserEvents = (events) => {
   return {
     type: GET_USER_EVENTS,
@@ -7,6 +9,7 @@ const getUserEvents = (events) => {
   };
 };
 
+// Thunks
 export const getUserEventsThunk = (userId) => async (dispatch) => {
   const res = await fetch(`/api/users/${userId}/events`);
 
@@ -16,6 +19,7 @@ export const getUserEventsThunk = (userId) => async (dispatch) => {
   }
 };
 
+// Reducer
 const initialState = {};
 
 export default function userEventsReducer(state = initialState, action) {

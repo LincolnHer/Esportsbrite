@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import * as categoryActions from "./store/categories"
 import * as eventActions from "./store/events";
 import * as sessionActions from "./store/session";
 import * as userActions from "./store/users";
@@ -27,6 +28,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(eventActions.getEventsThunk());
+    dispatch(categoryActions.getCategoriesThunk());
     dispatch(userActions.getUsersThunk());
   }, [dispatch]);
 

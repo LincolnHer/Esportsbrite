@@ -13,8 +13,13 @@ module.exports = {
         allowNull: false,
         references: { model: "Users" }
       },
-      category: {
-        type: Sequelize.STRING(40)
+      // category: {
+      //   type: Sequelize.STRING(40)
+      // },
+      categoryId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Categories" }
       },
       date: {
         type: Sequelize.DATE,

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Event.belongsTo(models.User, { foreignKey: 'hostId' })
       Event.hasMany(models.Ticket, { foreignKey: 'eventId', onDelete: 'cascade'  })
+      Event.belongsTo(models.Category, { foreignKey: 'categoryId' })
     }
   };
   Event.init({
@@ -20,8 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       type:  DataTypes.INTEGER,
       allowNull: false
     },
-    category: {
-      type:  DataTypes.STRING(40),
+    categoryId: {
+      // type:  DataTypes.STRING(40),
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     date: {
       type: DataTypes.DATE,

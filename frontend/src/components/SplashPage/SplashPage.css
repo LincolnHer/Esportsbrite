@@ -51,6 +51,7 @@
     grid-template-columns: auto auto auto auto;
     grid-gap: 20px;
     align-items: stretch;
+    padding: 40px 0 40px 0;
 }
 
 .event-card {
@@ -122,6 +123,51 @@
 .event-title {
     margin-top: 6px;
     width: 1260px;
+    padding-left: 20px;
+}
+
+.categories-ctr {
+    height: 60px;
+    width: 1260px;
+    font-size: 14px;
+}
+
+.categories-ul {
+    display: flex;
+    list-style: none;
+    width: 1260px;
+    padding: 0 0 0 10px;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.categories-li-ctr {
+    height: 44px;
+    padding: 0 12px 0 12px;
+}
+
+.categories-li {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    color: gray;
+}
+
+.active {
+    color: blue;
+    border-bottom: solid 2px blue;
+}
+
+.categories-li:hover {
+    cursor: pointer;
+    color: black;
+    border-bottom: solid 2px black;
+}
+
+.categories-li.active:hover {
+    cursor: pointer;
+    color: blue;
+    border-bottom: solid 2px blue;
 }
 
 /* .event-title {

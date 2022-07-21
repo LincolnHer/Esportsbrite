@@ -7,6 +7,9 @@ import "./EventForm.css";
 
 const EventFormPage = (isLoaded) => {
   const user = useSelector((state) => state.session.user);
+  const categories = useSelector((state) => state.categories);
+  const categoriesArr = Object.values(categories);
+  const category1 = categoriesArr.shift();
   const dispatch = useDispatch();
   const history = useHistory();
   const currDate = new Date().toISOString().split("T")[0];
@@ -23,7 +26,7 @@ const EventFormPage = (isLoaded) => {
     e.preventDefault();
     const eventFormVal = {
       hostId: user?.id,
-      category: category,
+      categoryId: +category,
       date: date,
       description: description,
       location: location,
@@ -31,6 +34,7 @@ const EventFormPage = (isLoaded) => {
       imageUrl: null,
       price: price,
     };
+    console.log(eventFormVal);
 
     const newEvent = await dispatch(postEventThunk(eventFormVal));
     history.push("/");
@@ -50,8 +54,7 @@ const EventFormPage = (isLoaded) => {
     if (!name?.length) valiErrs.push("Event name is required");
     if (name?.length > 80)
       valiErrs.push("Event name can't exceed 80 characters");
-    if (category?.length > 40)
-      valiErrs.push("Category name can't exceed 40 characters");
+    if (category === "") valiErrs.push("Select a category");
     if (!description?.length)
       valiErrs.push("Please provide a description for your event");
     if (description?.length > 255)
@@ -76,7 +79,9 @@ const EventFormPage = (isLoaded) => {
           </ul>
           <div className="manage-evts-pg">
             <p className="left-arrow"> {"<"} </p>
-            <NavLink className="title-link" to="/events/all">Events</NavLink>
+            <NavLink className="title-link" to="/events/all">
+              Events
+            </NavLink>
           </div>
           <h1 className="event-form-title">Create Event</h1>
           <div className="basic-info-container">
@@ -100,18 +105,25 @@ const EventFormPage = (isLoaded) => {
               </label>
               <label>
                 Category
-                <input
-                  className="event-input"
+                <select
+                  className="event-input select"
                   type="text"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   // placeholder="your category can be null"
-                />
+                >
+                  <option value="">Category</option>
+                  {categoriesArr?.map((category, idx) => (
+                    <option key={idx} value={category?.id}>
+                      {category?.type}
+                    </option>
+                  ))}
+                </select>
               </label>
               <label>
                 Description *
                 <textarea
-                  className="event-input"
+                  className="event-input description"
                   type="text"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}

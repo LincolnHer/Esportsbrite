@@ -9,15 +9,18 @@ const EditEventFormPage = (isLoaded) => {
   const { eventId } = useParams();
   const user = useSelector((state) => state.session.user);
   const events = useSelector((state) => state.events);
+  const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const categoriesArr = Object.values(categories);
+  const category1 = categoriesArr.shift();
   const eventsArr = Object.values(events);
   const currEvent = eventsArr.find((event) => event?.id === +eventId);
   const currDate = new Date().toISOString().split("T")[0];
   const currEventDate = currEvent?.date.split("T")[0];
 
-  const [category, setCategory] = useState(currEvent?.category);
+  const [category, setCategory] = useState(currEvent?.categoryId);
   const [date, setDate] = useState(currEventDate);
   const [description, setDescription] = useState(currEvent?.description);
   const [location, setLocation] = useState(currEvent?.location);
@@ -29,7 +32,7 @@ const EditEventFormPage = (isLoaded) => {
     e.preventDefault();
     const eventFormVal = {
       hostId: user?.id,
-      category: category,
+      categoryId: +category,
       date: date,
       description: description,
       location: location,
@@ -43,7 +46,7 @@ const EditEventFormPage = (isLoaded) => {
   };
 
   const reset = () => {
-    setCategory(currEvent?.category);
+    setCategory(currEvent?.categoryId);
     setDate(currEventDate);
     setDescription(currEvent?.description);
     setLocation(currEvent?.location);
@@ -56,8 +59,7 @@ const EditEventFormPage = (isLoaded) => {
     if (!name?.length) valiErrs.push("Event name is required");
     if (name?.length > 80)
       valiErrs.push("Event name can't exceed 80 characters");
-    if (category?.length > 40)
-      valiErrs.push("Category name can't exceed 40 characters");
+    if (category === "") valiErrs.push("Select a category");
     if (!description?.length)
       valiErrs.push("Please provide a description for your event");
     if (description?.length > 255)
@@ -108,18 +110,25 @@ const EditEventFormPage = (isLoaded) => {
               </label>
               <label>
                 Category
-                <input
-                  className="event-input"
+                <select
+                  className="event-input select"
                   type="text"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   // placeholder="your category can be null"
-                />
+                >
+                  <option value="">Category</option>
+                  {categoriesArr?.map((category, idx) => (
+                    <option key={idx} value={category?.id}>
+                      {category?.type}
+                    </option>
+                  ))}
+                </select>
               </label>
               <label>
                 Description *
                 <textarea
-                  className="event-input"
+                  className="event-input description"
                   type="text"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
