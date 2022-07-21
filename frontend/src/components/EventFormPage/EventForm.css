@@ -112,6 +112,18 @@
     margin: 20px 0 20px 0;
 }
 
+.event-input.description {
+    width: 716px;
+    height: 200px;
+    margin: 20px 0 20px 0;
+}
+
+.event-input.select {
+   font-size: 14px;
+   flex-direction: row;
+   justify-self: center;
+}
+
 .event-input-date {
     width: 350px;
     display: flex;

@@ -63,17 +63,14 @@ const HomePage = (isLoaded) => {
         <div className="page-bkg" style={backgroundStyle}>
           <div className="page-title">Evolve your gaming experience</div>
         </div>
-        {/* <div className="event-title">
-                <h1>Events</h1>
-            </div> */}
         <div className="page-body">
           <div className="event-title">
             <h1>Events</h1>
           </div>
-          <nav className="categories-ctr">
+          <div className="categories-ctr">
             <ul className="categories-ul">
               {categoriesArr?.map((category, idx) => (
-                <div className="categories-li-ctr" key={idx}>
+                <nav className="categories-li-ctr" key={idx}>
                   <li
                     className={`categories-li ${
                       activeId && idx === activeId - 1 ? "active" : ""
@@ -85,10 +82,10 @@ const HomePage = (isLoaded) => {
                   >
                     {category.type}
                   </li>
-                </div>
+                </nav>
               ))}
             </ul>
-          </nav>
+          </div>
           <div className="events-index">
             {filteredEvents?.map((event, idx) => (
               <EventsIndex key={idx} event={event} />

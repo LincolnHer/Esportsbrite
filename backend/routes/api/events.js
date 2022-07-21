@@ -26,11 +26,11 @@ router.get('/:eventId', asyncHandler(async(req, res) => {
 // POST create an event
 // api/events/
 router.post('/', asyncHandler(async(req, res) => {
-    const { hostId, category, date, description, location, name, imageUrl, price } = req.body
+    const { hostId, categoryId, date, description, location, name, imageUrl, price } = req.body
 
     const event = await Event.create({
         hostId: hostId,
-        category: category,
+        categoryId: categoryId,
         date: date,
         description: description,
         location: location,
@@ -47,12 +47,12 @@ router.post('/', asyncHandler(async(req, res) => {
 router.put('/:eventId', asyncHandler(async(req, res) => {
     const eventId = req.params.eventId
 
-    const { category, date, description, location, name, imageUrl, price } = req.body
+    const { categoryId, date, description, location, name, imageUrl, price } = req.body
 
     const event = await Event.findByPk(eventId)
 
     const newEvent = await event.update({
-        category: category,
+        categoryId: categoryId,
         date: date,
         description: description,
         location: location,

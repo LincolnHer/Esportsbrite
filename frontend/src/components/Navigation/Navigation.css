@@ -124,6 +124,11 @@
   font-size: 13px;
  }
 
+.splash-ticket.active {
+  color: black;
+  border-bottom: none;
+ }
+
  .splash-create-link:hover {
     background-color: #F5F5F5;
  }

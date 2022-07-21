@@ -45,7 +45,7 @@
     flex-direction: column;
 }
 
-input, textarea {
+input, textarea, select {
     display: flex;
     flex-direction: column;
     width: 356px;
@@ -53,7 +53,7 @@ input, textarea {
     border: 1px solid rgb(220, 220, 220);
 }
 
-input:hover, textarea:hover {
+input:hover, textarea:hover, select:hover {
 border: 1px solid black;
 }
 
