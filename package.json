@@ -12,6 +12,9 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
+  "engines": {
+    "node": ">=16.14.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LincolnHer/Esportsbrite.git"
@@ -24,4 +27,3 @@
   },
   "homepage": "https://github.com/LincolnHer/Esportsbrite#readme"
 }
-
