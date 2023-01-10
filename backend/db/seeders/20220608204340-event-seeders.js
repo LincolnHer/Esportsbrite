@@ -1,13 +1,19 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    options.tableName = 'Events';
     /**
      * Add seed commands here.
      *
      * Example:
      */
-    await queryInterface.bulkInsert('Events', [
+    await queryInterface.bulkInsert(options, [
       {
         hostId: 1,
         // category: "Multiplayer online battle arena",
@@ -100,11 +106,12 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
+    options.tableName = 'Events';
     /**
      * Add commands to revert seed here.
      *
      * Example:
      */
-    await queryInterface.bulkDelete('Events', null, {});
+    await queryInterface.bulkDelete(options, null, {});
   }
 };
