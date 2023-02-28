@@ -6,7 +6,6 @@ import TicketEditForm from "../Modals/TicketEditForm";
 import { deleteTicketThunk } from "../../store/tickets";
 
 const TicketCard = (ticket) => {
-  console.log(ticket)
   const dispatch = useDispatch();
   const events = useSelector((state) => state?.events);
 

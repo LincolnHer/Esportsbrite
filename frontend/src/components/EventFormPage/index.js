@@ -37,7 +37,6 @@ const EventFormPage = (isLoaded) => {
       imageUrl: imgUrl,
       price: price,
     };
-    console.log(eventFormVal);
 
     const newEvent = await dispatch(postEventThunk(eventFormVal));
     history.push("/");
