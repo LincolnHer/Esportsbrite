@@ -4,6 +4,12 @@ import { useHistory } from "react-router-dom";
 import { deleteEventThunk } from "../../store/events";
 
 const EventCard = (event) => {
+  const imageUrls = event.event.imageUrl
+
+  const eventImgStyle = {
+    backgroundImage: `url(${imageUrls})`,
+  }
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -61,7 +67,7 @@ const EventCard = (event) => {
         <div className="events-day">{day[0] === "0" ? day.slice(1) : day}</div>
       </div>
       <div className="events-img-div">
-        <div className="events-img"></div>
+        <div className="events-img" style={eventImgStyle}></div>
       </div>
       <div className="events-info">
         <div className="events-name">{event?.event?.name}</div>

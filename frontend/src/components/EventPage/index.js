@@ -28,6 +28,12 @@ const EventPage = (isLoaded) => {
   const month = dateStr?.slice(4, 7);
   const day = dateStr?.slice(8, 10);
 
+  const imgUrls = currEvent?.imageUrl
+
+  const eventImg = {
+    backgroundImage: `url(${imgUrls})`
+  }
+
 
   const deleteEvent = async (e) => {
     e.preventDefault();
@@ -49,7 +55,7 @@ const EventPage = (isLoaded) => {
       <main className="event-main">
         <div className="event-container">
           <div className="event-details">
-            <div className="event-img-2"></div>
+            <div className="event-img-2" style={eventImg}></div>
             <div className="event-card-content-2">
               <div className="event-date-2">{month}</div>
               <div className="event-date-3">{day}</div>

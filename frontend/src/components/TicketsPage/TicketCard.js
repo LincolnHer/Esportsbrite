@@ -33,6 +33,12 @@ const TicketCard = (ticket) => {
   const day = dateStr?.slice(8, 10);
   const calcPrice = ticketEvent?.price * ticket?.ticket?.quantity;
 
+  const imgUrl = ticketEvent?.imageUrl
+
+  const eventImg = {
+    backgroundImage: `url(${imgUrl})`
+  }
+
   const onClose = () => {
     setShowModal(false);
   };
@@ -50,9 +56,9 @@ const TicketCard = (ticket) => {
             <div className="ticket-month">{month}</div>
             <div className="ticket-day">{day[0] === "0" ? day.slice(1) : day}</div>
           </div>
-          <div className="event-img-ticket"></div>
+          <div className="event-img-ticket" style={eventImg}></div>
           <div className="ticket-event">
-            <div className="ticket-evnt-name">{ticketEvent?.name}</div>
+            <div className="ticket-evnt-name" >{ticketEvent?.name}</div>
             <div className="ticket-evnt-date">{ticketDate}</div>
             <div>quantity: {ticket?.ticket?.quantity}</div>
             <div>price: ${calcPrice}.00</div>

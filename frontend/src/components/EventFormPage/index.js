@@ -9,6 +9,8 @@ const EventFormPage = (isLoaded) => {
   const user = useSelector((state) => state.session.user);
   const categories = useSelector((state) => state.categories);
   const categoriesArr = Object.values(categories);
+  // const events = useSelector((state) => state.events.events)
+  // console.log(events)
   const category1 = categoriesArr.shift();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -19,6 +21,7 @@ const EventFormPage = (isLoaded) => {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
+  const [imgUrl, setImgUrl] = useState("https://www.technewsworld.com/wp-content/uploads/sites/3/2021/09/esports-arena.jpg");
   const [price, setPrice] = useState(0);
   const [errors, setErrors] = useState([]);
 
@@ -31,7 +34,7 @@ const EventFormPage = (isLoaded) => {
       description: description,
       location: location,
       name: name,
-      imageUrl: null,
+      imageUrl: imgUrl,
       price: price,
     };
     console.log(eventFormVal);
@@ -47,6 +50,7 @@ const EventFormPage = (isLoaded) => {
     setLocation("");
     setName("");
     setPrice(0);
+    setImgUrl("");
   };
 
   useEffect(() => {
@@ -65,7 +69,9 @@ const EventFormPage = (isLoaded) => {
       valiErrs.push("Location name can't exceed 255 characters");
     if (!date?.length) valiErrs.push("Please select a date for your event");
     setErrors(valiErrs);
-  }, [category, date, description, location, name]);
+    if (!imgUrl.length) valiErrs.push("Image Url can't be empty");
+    setErrors(valiErrs);
+  }, [category, date, description, location, name, imgUrl]);
 
   return (
     <>
@@ -143,6 +149,16 @@ const EventFormPage = (isLoaded) => {
                     placeholder="$0.00"
                   />
                 </div>
+              </label>
+              <label>
+                Image Url
+                <input
+                  className="event-input"
+                  type="text"
+                  value={imgUrl}
+                  onChange={(e) => setImgUrl(e.target.value)}
+                  // placeholder="If no url leave it blank"
+                />
               </label>
             </div>
           </div>

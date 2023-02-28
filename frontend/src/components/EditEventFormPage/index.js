@@ -25,6 +25,7 @@ const EditEventFormPage = (isLoaded) => {
   const [description, setDescription] = useState(currEvent?.description);
   const [location, setLocation] = useState(currEvent?.location);
   const [name, setName] = useState(currEvent?.name);
+  const [imgUrl, setImgUrl] = useState(currEvent?.imageUrl);
   const [price, setPrice] = useState(currEvent?.price);
   const [errors, setErrors] = useState([]);
 
@@ -37,7 +38,7 @@ const EditEventFormPage = (isLoaded) => {
       description: description,
       location: location,
       name: name,
-      imageUrl: null,
+      imageUrl: imgUrl,
       price: price,
     };
 
@@ -52,6 +53,7 @@ const EditEventFormPage = (isLoaded) => {
     setLocation(currEvent?.location);
     setName(currEvent?.name);
     setPrice(currEvent?.price);
+    setImgUrl(currEvent?.imageUrl)
   };
 
   useEffect(() => {
@@ -70,7 +72,9 @@ const EditEventFormPage = (isLoaded) => {
       valiErrs.push("Location name can't exceed 255 characters");
     if (!date?.length) valiErrs.push("Please select a date for your event");
     setErrors(valiErrs);
-  }, [category, date, description, location, name]);
+    if (!imgUrl.length) valiErrs.push("Image Url can't be empty");
+    setErrors(valiErrs);
+  }, [category, date, description, location, name, imgUrl]);
 
   return (
     <>
@@ -148,6 +152,16 @@ const EditEventFormPage = (isLoaded) => {
                     placeholder="$0.00"
                   />
                 </div>
+              </label>
+              <label>
+                Image Url
+                <input
+                  className="event-input"
+                  type="text"
+                  value={imgUrl}
+                  onChange={(e) => setImgUrl(e.target.value)}
+                  // placeholder="If no url leave it blank"
+                />
               </label>
             </div>
           </div>
