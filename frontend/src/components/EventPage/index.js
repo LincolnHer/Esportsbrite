@@ -52,7 +52,7 @@ const EventPage = (isLoaded) => {
   return (
     <div className="Splash-Home-2">
       <Navigation isLoaded={isLoaded} />
-      <main className="event-main">
+      <main className="event-main" style={eventImg}>
         <div className="event-container">
           <div className="event-details">
             <div className="event-img-2" style={eventImg}></div>

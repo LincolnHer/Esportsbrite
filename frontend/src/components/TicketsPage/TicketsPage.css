@@ -7,6 +7,12 @@
 .event-details.ticket {
     height: 266px;
     align-items: center;
+    justify-content: center;
+    width: 1080px;
+    background-color: #FAFAFA;
+    /* border-right: rgb(230, 230, 230, 1); */
+    border-right: 1px solid rgb(230, 230, 230, 1);
+    border-left: 1px solid rgb(230, 230, 230, 1);
 }
 
 .ticket-header {
@@ -22,7 +28,8 @@
 }
 
 .event-container.ticket {
-    background-color: rgb(250, 250, 250)
+    /* background-color: rgb(250, 250, 250); */
+    height: auto;
 }
 
 .ticket-container{
